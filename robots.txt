@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /donotgo/whywillyou/9HxjWZQVYK3eS6rD.txt
