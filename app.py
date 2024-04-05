@@ -2,11 +2,19 @@ from flask import Flask, render_template, request, jsonify,make_response,send_fr
 from routes.biscuit import biscuit_page
 from routes.js_password import js_password_page
 from routes.something_file import something_file_page
+from routes.come_back import come_back_page
+from routes.test import test_page
 app = Flask(__name__)
 
 app.register_blueprint(biscuit_page,url_prefix="/biscuit")
 app.register_blueprint(js_password_page,url_prefix="/js_password")
 app.register_blueprint(something_file_page)
+app.register_blueprint(come_back_page,url_prefix="/come_back")
+# app.register_blueprint(come_back_page,url_prefix="/come_back")
+app.register_blueprint(test_page,url_prefix="/test")
+
+
+
 
 
 
