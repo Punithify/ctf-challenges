@@ -3,12 +3,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="1;url=/come_back/next" />
+    <meta http-equiv="refresh" />
     <title>Infinite Redirection Loop</title>
     <script>
       // Function to continuously make requests to the /next route
       function requestNext() {
-        fetch('/come_back/next')
+        fetch('/come_back/file-content')
           .then((response) => response.text())
           .then((data) => {
             console.log(data);

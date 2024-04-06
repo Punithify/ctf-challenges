@@ -1,20 +1,28 @@
 from flask import Flask, render_template, request,Blueprint,Response,redirect
 come_back_page = Blueprint("come_back", __name__, static_folder="static", template_folder="../templates/come_back")
 
-FLAG = "FLAG{example_flag}"
-current_letter_index = 0
+
+# Define the word
+word = "something"
+
 @come_back_page.route('/')
 def index():
+    # Serve the HTML file
     return render_template('something.html')
 
-@come_back_page.route('/next')
-def next():
-    global current_letter_index 
-    current_letter = FLAG[current_letter_index]
-    current_letter_index = (current_letter_index + 1) % len(FLAG)
-    return serve_letter(current_letter)
 
-def serve_letter(letter):
-    response = Response(f"Content of letter {letter}", status=200, mimetype='text/plain')
-    response.headers['X-Content-Type-Options'] = 'nosniff'  # Prevent MIME sniffing
-    return response
+@come_back_page.route('/file-content')
+def file_content():
+    global word
+    # Check if there are characters left in the word
+    if len(word) > 0:
+        # Get the first character of the word
+        char = word[0]
+        # Remove the first character from the word
+        word = word[1:]
+        # Return the character
+        return char
+    else:
+        # Return an empty response if all characters have been served
+        return ""
+

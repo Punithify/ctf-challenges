@@ -4,7 +4,10 @@ from routes.js_password import js_password_page
 from routes.something_file import something_file_page
 from routes.come_back import come_back_page
 from routes.test import test_page
+from routes.api import api_page
+from routes.feedback_form import feedback_form_page
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your_secret_key'
 
 app.register_blueprint(biscuit_page,url_prefix="/biscuit")
 app.register_blueprint(js_password_page,url_prefix="/js_password")
@@ -12,6 +15,10 @@ app.register_blueprint(something_file_page)
 app.register_blueprint(come_back_page,url_prefix="/come_back")
 # app.register_blueprint(come_back_page,url_prefix="/come_back")
 app.register_blueprint(test_page,url_prefix="/test")
+app.register_blueprint(api_page,url_prefix="/api")
+app.register_blueprint(feedback_form_page,url_prefix="/feedback_form")
+
+
 
 
 

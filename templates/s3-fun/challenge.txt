@@ -1,0 +1,7 @@
+Buckets are much more
+
+http://bucketsoffun-ctf.s3-website-us-east-1.amazonaws.com/
+
+
+flag 
+ctf{LIST_HIDDEN_FILES}

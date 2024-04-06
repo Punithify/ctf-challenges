@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Profile</title>
+  </head>
+  <body>
+    <h1>User Profile</h1>
+    <p>This is your profile page.</p>
+    <!-- Vulnerable input field susceptible to XSS -->
+    <p>Enter something: <input type="text" id="input" /></p>
+    <button onclick="showInput()">Show Input</button>
+
+    <script>
+      function showInput() {
+        var userInput = document.getElementById('input').value;
+        // Display user input on the page (vulnerable to XSS)
+        document.write('<p>You entered: ' + userInput + '</p>');
+      }
+    </script>
+  </body>
+</html>
