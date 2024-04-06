@@ -9,7 +9,7 @@ def index():
 def submit():
     entered_password = request.form.get('password')
 
-    correct_password = '3d02cf1bd3'
+    correct_password = 'starlightflagpursuit'
 
     if entered_password == correct_password:
         return """<h1 class="text-center">correct</h1>"""

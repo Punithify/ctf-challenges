@@ -16,11 +16,6 @@ app.register_blueprint(test_page,url_prefix="/test")
 
 
 
-
-
-
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
