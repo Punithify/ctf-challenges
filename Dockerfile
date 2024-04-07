@@ -28,11 +28,10 @@ RUN pip install gunicorn
 COPY . /app/
 
 # Copy NGINX configuration file
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/sites-available/default
 
 # Expose ports
 EXPOSE 80
-EXPOSE 5000
 
 # Command to run the Flask application with NGINX
-CMD ["bash", "-c", "if [ \"$FLASK_ENV\" = \"development\" ]; then flask run --host=0.0.0.0 --port=5000; else service nginx start && gunicorn --bind 0.0.0.0:5000 app:app; fi"]
+CMD ["bash", "-c", "service nginx start && gunicorn --bind 0.0.0.0:80 app:app"]
