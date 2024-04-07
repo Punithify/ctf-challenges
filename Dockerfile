@@ -4,6 +4,7 @@ FROM python:3.9-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV FLASK_ENV=production
 
 # Set the working directory in the container
 WORKDIR /app
@@ -28,10 +29,11 @@ RUN pip install gunicorn
 COPY . /app/
 
 # Copy NGINX configuration file
-COPY nginx.conf /etc/nginx/sites-available/default
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose ports
 EXPOSE 80
+EXPOSE 5000
 
 # Command to run the Flask application with NGINX
-CMD ["bash", "-c", "service nginx start && gunicorn --bind 0.0.0.0:80 app:app"]
+CMD ["bash", "-c", "if [ \"$FLASK_ENV\" = \"development\" ]; then flask run --host=0.0.0.0 --port=5000; else service nginx start && gunicorn --bind 0.0.0.0:5000 app:app; fi"]
