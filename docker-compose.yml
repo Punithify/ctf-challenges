@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   web:
     build: .
@@ -11,8 +9,6 @@ services:
       - .:/app
     command: bash -c "if [ ${FLASK_ENV} = 'development' ]; then flask run --host=0.0.0.0 --port=5000; else service nginx start && gunicorn --bind 0.0.0.0:5000 app:app; fi"
     restart: unless-stopped
-    depends_on:
-      - nginx
 
   nginx:
     image: nginx:latest
