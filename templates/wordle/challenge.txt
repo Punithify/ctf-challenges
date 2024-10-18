@@ -1,8 +1,0 @@
-wordle 
-
-Do teachers like wordle?
-
-
-flags :
-ctf{GOBIRAMASWAMY}
-https://mywordle.strivemath.com/?word=ccslceiojzlqu

@@ -1,8 +1,0 @@
-We found this image of a coin that belongs to a RBI Member. The image has something to do with the encoded message. We believe the message indicates who this RBI members wants to target next. Figure out who the target is.
-
-
-image url
-
-ROT : Zfdms Bnaqz
-
-flag{Agent Cobra}
