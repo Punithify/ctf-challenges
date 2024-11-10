@@ -9,12 +9,11 @@ ENV FLASK_ENV=production
 # Set the working directory in the container
 WORKDIR /app
 
-# Install system dependencies
+# Install system dependencies (no Nginx)
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         build-essential \
         libpq-dev \
-        nginx \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -25,12 +24,8 @@ RUN pip install --no-cache-dir -r requirements.txt gunicorn
 # Copy the application code into the container
 COPY . /app/
 
-# Copy NGINX configuration file
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# Expose ports
-EXPOSE 8080
+# Expose the port Cloud Run expects
 EXPOSE 8080
 
-# Command to run the Flask application with NGINX
-CMD ["bash", "-c", "if [ \"$FLASK_ENV\" = \"development\" ]; then flask run --host=0.0.0.0 --port=8080; else service nginx start && gunicorn --bind 0.0.0.0:8080 app:app; fi"]
+# Command to run the Flask application with Gunicorn on port 8080
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
