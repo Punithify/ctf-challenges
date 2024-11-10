@@ -29,8 +29,8 @@ COPY . /app/
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose ports
-EXPOSE 80
-EXPOSE 5000
+EXPOSE 8080
+EXPOSE 8080
 
 # Command to run the Flask application with NGINX
-CMD ["bash", "-c", "if [ \"$FLASK_ENV\" = \"development\" ]; then flask run --host=0.0.0.0 --port=5000; else service nginx start && gunicorn --bind 0.0.0.0:5000 app:app; fi"]
+CMD ["bash", "-c", "if [ \"$FLASK_ENV\" = \"development\" ]; then flask run --host=0.0.0.0 --port=8080; else service nginx start && gunicorn --bind 0.0.0.0:8080 app:app; fi"]
