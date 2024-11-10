@@ -18,12 +18,9 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
+# Install Python dependencies and gunicorn together
 COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Install gunicorn
-RUN pip install gunicorn
+RUN pip install --no-cache-dir -r requirements.txt gunicorn
 
 # Copy the application code into the container
 COPY . /app/
