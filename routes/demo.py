@@ -1,5 +1,4 @@
-from flask import Blueprint,Flask, jsonify, render_template, request, redirect, url_for
-import os
+from flask import Blueprint, Flask, render_template
 
 demo_page = Blueprint("demo", __name__, static_folder="../static", template_folder="../templates/demo")
 

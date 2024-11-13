@@ -1,5 +1,5 @@
-// function getTheBox() {
-//   const url = `/hephastus_forge/spawn?key=${key}`;
+// function slayMedusa() {
+//   const url = `/perseus_trial/spawn?blessing=${blessing}`;
 
 //   fetch(url)
 //       .then(response => {
@@ -12,7 +12,7 @@
 //       .then(blob => {
 //           const link = document.createElement('a');
 //           link.href = URL.createObjectURL(blob);
-//           link.download = 'pandoras_box.zip';  
+//           link.download = 'medusas_head.zip';  
 //           link.click();  
 //       })
 //       .catch(error => {

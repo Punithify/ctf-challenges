@@ -3,7 +3,7 @@ from routes.hidden_js import hidden_js_page
 from routes.hermes_cloak import hermes_cloak_page
 from routes.demo import demo_page
 from routes.wordle import wordle_page
-from routes.hephastus_forge import hephastus_forge_page
+from routes.perseus_trial import perseus_trial_page
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -13,7 +13,7 @@ app.register_blueprint(hidden_js_page,url_prefix="/veil_of_secrets")
 app.register_blueprint(hermes_cloak_page,url_prefix="/hermes_cloak")
 app.register_blueprint(demo_page,url_prefix="/demo")
 app.register_blueprint(wordle_page, url_prefix="/lets_fly")
-app.register_blueprint(hephastus_forge_page, url_prefix="/hephastus_forge")
+app.register_blueprint(perseus_trial_page, url_prefix="/perseus_trial")
 
 
 @app.route('/')
