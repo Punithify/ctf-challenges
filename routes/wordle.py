@@ -1,4 +1,4 @@
-from flask import Blueprint,Flask, jsonify, render_template, request, redirect, url_for
+from flask import Blueprint,Flask, jsonify, render_template, request
 
 wordle_page = Blueprint("wordle", __name__, static_folder="../static", template_folder="../templates/wordle")
 

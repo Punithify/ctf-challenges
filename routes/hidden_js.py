@@ -1,4 +1,4 @@
-from flask import Blueprint,Flask, jsonify, render_template, request, redirect, url_for
+from flask import Blueprint,Flask, jsonify, render_template
 import os
 
 hidden_js_page = Blueprint("hidden_js", __name__, static_folder="../static", template_folder="../templates/hidden_js")
