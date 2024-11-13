@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+</head>
+<body>
+
+    <a href="https://mywordle.strivemath.com/?word=lffwzgkz"><h2>Find the word</h2></a>
+    
+    <h2>Enter your answer:</h2>
+    
+    <input type="text" id="inputField" placeholder="Enter answer...">
+    <button onclick="submitAnswer()">Submit</button>
+    
+    <h3>Response:</h3>
+    <div id="responseBox"></div>
+
+    <script>
+        function submitAnswer() {
+            const input = document.getElementById("inputField").value;
+            const responseBox = document.getElementById("responseBox");
+
+            fetch('check', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ answer: input })
+            })
+            .then(response => response.json())
+            .then(data => {
+                responseBox.innerHTML = `${data.message}`;
+            })
+            .catch(error => {
+                responseBox.innerHTML = 'Error: ' + error.message;
+            });
+        }
+    </script>
+
+</body>
+</html>
