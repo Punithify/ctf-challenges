@@ -6,11 +6,11 @@ perseus_trial_page = Blueprint("perseus_trial", __name__, static_folder="../stat
 @perseus_trial_page.route('/')
 def index():
     response = make_response(render_template('perseus_trial.html'))
-    response.set_cookie('medusa_location', 'gorgons_lair', max_age=60*60*24*30)  
+    response.set_cookie('goddess_location', 'athens', max_age=60*60*24*30)  
     return response
   
   
-@perseus_trial_page.route('gorgons_lair', methods=['HEAD'])
+@perseus_trial_page.route('athens', methods=['HEAD'])
 def handle_head_request():
     response = Response()
     
