@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  const welcomeMessage = "Σηκώστε το πέπλο. Αναχαιτίστε το μήνυμα καθώς κινείται σε αόρατα βασίλεια.";
+  const welcomeMessage = "Σηκώστε το πέπλο. Αναχαιτίστε τα μηνύματα καθώς περνά μέσα από αόρατα βασίλεια.";
   const welcomeDiv = document.getElementById('welcome');
   welcomeDiv.innerHTML = `<span class="greeky-style">${welcomeMessage}</span>`;
 
