@@ -4,77 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-image: url('https://res.cloudinary.com/dnsmfzkcw/image/upload/v1731255098/ctf-christ/DALL_E_2024-11-10_21.40.42_-_A_high-resolution_background_image_featuring_an_ancient_Greek_temple_under_a_clear_sky._The_temple_is_inspired_by_the_Parthenon_with_classical_Doric_gli89u.webp');
-        background-size: cover;
-        background-attachment: fixed;
-        color: #f0e6d6;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-      }
+    <link rel="stylesheet" href="{{ url_for('demo.static', filename='css/demo.css') }}">
 
-      .header {
-        padding: 10px;
-        background: rgba(0, 0, 0, 0.7);
-      }
-
-      h1 {
-        font-size: 3em;
-        color: #ffd700;
-        margin: 20px 0;
-      }
-
-      .content {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 10px;
-        margin-top: 20px;
-      }
-
-      .section-title {
-        font-size: 2em;
-        color: #ffd700;
-        margin-top: 20px;
-        text-decoration: underline;
-      }
-
-      .button {
-        display: inline-block;
-        margin: 10px;
-        padding: 15px 25px;
-        color: #f0e6d6;
-        background: #333;
-        border-radius: 5px;
-        text-decoration: none;
-        font-size: 1.2em;
-        border: 2px solid #ffd700;
-      }
-
-      .button:hover {
-        background-color: #555;
-        color: #ffd700;
-      }
-
-      .text {
-        display: none;
-      }
-    </style>
 </head>
-<!-- <body>
-    <button class="btn" onclick="showText()">Click Me</button>
-    <div id="text">CTF{This_Is_The_D3M0_F1aG}</div>
-
-    <script>
-        function showText() {
-            document.getElementById("text").style.display = "block";
-        }
-    </script>
-</body> -->
 
 <body>
 

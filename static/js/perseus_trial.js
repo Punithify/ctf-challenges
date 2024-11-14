@@ -1,7 +1,14 @@
 // function slayMedusa() {
-//   const url = `/perseus_trial/spawn?blessing=${blessing}`;
+//   const url = `/perseus_trial/spawn`;
+//   const data = { blessing: blessing };
 
-//   fetch(url)
+//   fetch(url, {
+//       method: 'POST',
+//       headers: {
+//           'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(data)
+//   })
 //       .then(response => {
 //           if (response.ok) {
 //               return response.blob();

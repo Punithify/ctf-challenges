@@ -4,50 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hermes' Cloak</title>
-  <style>
+  <link rel="stylesheet" href="{{ url_for('hermes_cloak.static', filename='css/hermes_cloak.css') }}">
 
-    body {
-      font-family: Arial, sans-serif;
-      background-image: url('https://res.cloudinary.com/dnsmfzkcw/image/upload/v1731255098/ctf-christ/DALL_E_2024-11-10_21.40.42_-_A_high-resolution_background_image_featuring_an_ancient_Greek_temple_under_a_clear_sky._The_temple_is_inspired_by_the_Parthenon_with_classical_Doric_gli89u.webp');
-      background-size: cover;
-      background-attachment: fixed;
-      color: #f0e6d6;
-      text-align: center;
-      padding: 0;
-      margin: 0;
-    }  
-
-    .content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-
-    img {
-      max-width: 60vw; /* Image width at 60% of the viewport width */
-      max-height: 70vh; /* Image height at 80% of the viewport height */
-      width: auto;
-      height: auto;
-      border-radius: 8px;
-      border: 3px solid #ffd700; /* Golden border */
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-    }
-
-    .header {
-        padding: 10px;
-        background: rgba(0, 0, 0, 0.7);
-    }
-
-    h1 {
-      font-size: 3em;
-      color: #ffd700;
-      margin-bottom: 10px;
-    }
-
-  </style>
 </head>
 <body>
 

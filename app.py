@@ -4,6 +4,7 @@ from routes.hermes_cloak import hermes_cloak_page
 from routes.demo import demo_page
 from routes.wordle import wordle_page
 from routes.perseus_trial import perseus_trial_page
+from routes.auth import auth_page
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -14,6 +15,7 @@ app.register_blueprint(hermes_cloak_page,url_prefix="/hermes_cloak")
 app.register_blueprint(demo_page,url_prefix="/demo")
 app.register_blueprint(wordle_page, url_prefix="/lets_fly")
 app.register_blueprint(perseus_trial_page, url_prefix="/perseus_trial")
+app.register_blueprint(auth_page, url_prefix="/authpage")
 
 
 @app.route('/')
