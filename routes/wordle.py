@@ -2,7 +2,7 @@ from flask import Blueprint,Flask, jsonify, render_template, request
 
 wordle_page = Blueprint("wordle", __name__, static_folder="../static", template_folder="../templates/wordle")
 
-CORRECT_ANSWER = ["wireguard", "openvpn", "ikev2", "softether", "pptp", "l2tp", "ipsec"]
+CORRECT_ANSWER = ["wireguard", "openvpn", "ikev2", "softether", "pptp", "l2tp", "ipsec", "sstp"]
 
 @wordle_page.route('/')
 def index():
