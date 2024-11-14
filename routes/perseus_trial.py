@@ -6,7 +6,12 @@ perseus_trial_page = Blueprint("perseus_trial", __name__, static_folder="../stat
 @perseus_trial_page.route('/')
 def index():
     response = make_response(render_template('perseus_trial.html'))
-    response.set_cookie('goddess_location', 'athens', max_age=60*60*24*30)  
+    response.set_cookie(
+        'goddess_location', 
+        'athens', 
+        max_age=60*60*24*30,  
+        samesite='Strict'  # or 'Strict' or 'None' with secure=True
+    )
     return response
   
   
@@ -25,14 +30,15 @@ def handle_head_request():
     return response
   
   
-@perseus_trial_page.route('spawn', methods=['GET'])
+@perseus_trial_page.route('spawn', methods=['POST'])
 def download_file():
-    blessing = request.args.get('blessing')
+    data = request.get_json()
+    blessing = data.get('blessing')
 
     if blessing != "Ath3na's_P0l1sh3d_Shi3ld":
-        abort(403)  
+        abort(403)
 
-    filename = 'archive/medusas_head.zip' 
+    filename = 'archive/medusas_head.zip'
     try:
         return send_from_directory(perseus_trial_page.static_folder, filename, as_attachment=True)
     except FileNotFoundError:
