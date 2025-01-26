@@ -1,6 +1,6 @@
 services:
   web:
-    build: .
+    image: ghcr.io/punithify/ctf-challenges:0.1-dev
     environment:
       - FLASK_ENV=production
     volumes:
