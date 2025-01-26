@@ -1,0 +1,47 @@
+name: CTF challenges CICD run
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  pr_run:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run tests
+        run: |
+          pytest
+
+  image-dev-build:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+    steps:
+      - name: Clone the repo
+        uses: actions/checkout@v4
+        with:
+          ssh: true
+          submodules: recursive
+          ssh-key: ${{ secrets.GH_SSH_ACCESS_SECRET }}
+
+      # Step 1: Configure GHCR Credentials
+      - name: Login to GHCR
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_REPO_ACCESS_TOKEN }}
+      - name: Build image
+        run: |
+          docker build -t punithify/ctf-challenges:0.1 -f Dockerfile .
+          docker tag punithify/ctf-challenges:0.1 ghcr.io/punithify/ctf-challenges:0.1-dev
+          docker push ghcr.io/punithify/ctf-challenges:0.1-dev
